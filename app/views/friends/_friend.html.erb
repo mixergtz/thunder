@@ -1,11 +1,20 @@
-<figure>
-  <%= image_tag Gravatar.new(@friend.email).image_url(s: 300) %>
-  <p><%= @friend.name %>, <strong><%= @friend.age %> años</strong></p>
 
-  <button class="like">
-    <%= link_to "Me Gusta", friends_like_path(id: @friend, liked: true), method: :post %>
-  </button>
-  <button class="nolike">
-    <%= link_to "No Me Gusta", friends_like_path(id: @friend, liked: false), method: :post %>
-  </button>
-</figure>
+<div class="col-md-4 col-md-offset-4">
+	<div class="panel panel-default friend-card">
+	  <div class="panel-body">
+	  	  <%= image_tag Gravatar.new(@friend.email).image_url(s: 300), class: "friend-pic" %>
+	  </div>
+	  <div class="panel-footer">
+	  	<h4><%= @friend.name %>, <strong><%= @friend.age %> años</strong></h4>
+	  </div>
+	 
+	  <button class="btn btn-primary btnA-card">
+	    <%= link_to raw("<span class='glyphicon glyphicon-thumbs-up'></span> Me gusta"), friends_like_path(id: @friend, liked: true), method: :post %>
+	  </button>
+	  <button class="btn btn-default btnB-card">
+	    <%= link_to raw("<span class='glyphicon glyphicon-thumbs-down'></span> No me gusta"), friends_like_path(id: @friend, liked: false), method: :post %>
+	  </button>
+	
+	</div>
+</div>
+

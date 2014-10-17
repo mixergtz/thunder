@@ -7,27 +7,69 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <% if user_signed_in? %>
-      <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-      <%= image_tag Gravatar.new(current_user.email).image_url %>
-    <% end %>
-    <h1>TE GUSTA O NO</h1>
-  </header>
 
-  <p>Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</p>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Te gusta o no</a>
+    </div>
 
-  <div class="content">
-    <% flash.each do |name, err|%>
-      <%= content_tag :div, err, class: name %>
-    <% end %>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+      </ul>
 
-    <%= yield %>
-  </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= image_tag Gravatar.new(current_user.email).image_url(s: 50) %></li>
+          <li><%= link_to "Salir", destroy_user_session_path, method: :delete, class: "profile_pic" %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>  
 
-  <footer>
-    <p>Escribenos en twitter <a href="#">@tegustaono</a></p>
-  </footer>
+
+<div class="container text-center" id="main"> <!-- Start Main Container -->
+
+<!--
+    <div class="row>">
+      <h4>Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</h4>
+    </div>
+-->
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <% flash.each do |name, err|%>
+          <%= content_tag :div, err, class: "alert alert-info" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+        <%= yield %>
+    </div>
+
+</div> <!-- End Main Container -->
+
+<div class="container"> <!-- Start Footer Container -->
+    <div class="row">
+       <footer class="text-center">
+        <p>Escribenos en twitter <a href="#">@tegustaono</a></p>
+      </footer>
+    </div>
+</div><!-- End Footer Container -->
+
+
+
+ 
 
 </body>
 </html>

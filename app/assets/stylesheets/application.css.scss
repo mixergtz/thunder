@@ -1,0 +1,44 @@
+@import "bootstrap-sprockets";
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+
+$body-bg:                     #fff;
+$font-family-sans-serif:      'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$navbar-height:               50px;
+$brand-primary:               #e74c3c;
+$navbar-default-link-color:	  white;
+$navbar-default-brand-color:  white;
+$navbar-default-bg:           $brand-primary;
+$btn-primary-bg: 			  $brand-primary;
+$btn-default-border:		  $brand-primary;
+
+@import "bootstrap";
+
+
+.navbar-brand {
+     font-weight: bold;
+}
+
+
+.friend-pic{
+	width: 100%;
+}
+
+.friend-card .panel-body{
+	padding: 0;
+}
+
+
+.btnA-card, .btnB-card{
+	width:49.5%;
+	font-size: 24px;
+}
+
+.btnA-card a{
+	color: $navbar-default-brand-color;
+}
+
+#main{
+	min-height: 500px;
+}
