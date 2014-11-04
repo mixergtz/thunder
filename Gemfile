@@ -23,6 +23,7 @@ group :development do
   gem 'guard'
   gem 'guard-livereload', require: false
   gem 'sqlite3'
+  gem "letter_opener"
 end
 
 group :production do
