@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url = Rails.env.production? ?  "https://mxr-fzone.herokuapp.com" : "http://localhost:3000"
+    @url = ActionMailer::Base.default_url_options.values.join(':')
     mail(to: @user.email, subject: "Bienvenido a FZone")
   end
 
