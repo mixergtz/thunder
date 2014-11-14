@@ -17,12 +17,19 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
 
+group :test do
+  gem 'minitest-reporters', '1.0.5'
+  gem 'mini_backtrace',     '0.1.3'
+  gem 'guard-minitest',     '2.3.1'
+end
+
 group :development do
   gem 'pry' #debugger
   gem 'spring'
   gem 'guard'
   gem 'guard-livereload', require: false
   gem 'sqlite3'
+  gem "letter_opener"
 end
 
 group :production do

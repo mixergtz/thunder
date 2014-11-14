@@ -16,6 +16,8 @@ class FriendsController < ApplicationController
 
     if @friend.liked?(current_user)
       render :match
+      # Codigo para el action mailer
+      UserMailer.notify_match(@friend, current_user).deliver
     else
       redirect_to root_path
     end
